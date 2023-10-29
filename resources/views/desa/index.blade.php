@@ -63,28 +63,30 @@
                 @if ($berita->isEmpty())
                 @else
                     @foreach ($berita as $item)
-                        <div class="col-span-12 lg:col-span-4">
-                            <div class="flex flex-col">
-                                <div class="relative">
-
-                                    @if ($item->gambar)
-                                        <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->judul }}"
-                                            class="object-cover w-full h-[250px] md:h-[150px] rounded-md">
-                                    @else
-                                        <img src="{{ asset('storage/image/berita2.jpg') }}" alt="{{ $item->judul }}"
-                                            class="object-cover w-full h-[250px] md:h-[150px] rounded-md">
-                                    @endif
-
-
-
-                                    <div class="absolute bottom-4 left-4">
-                                        <p
-                                            class="block px-5 py-1 text-sm text-blue-800 bg-blue-200 rounded-md">Berita</p>
+                        <div class="col-span-12 mb-5 lg:mb-0 lg:col-span-4">
+                            <a href="/berita/{{ $item->slug }}" class="group">
+                                <div class="flex flex-col">
+                                    <div class="relative">
+    
+                                        @if ($item->gambar)
+                                            <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->judul }}"
+                                                class="object-cover w-full h-[250px] md:h-[150px] rounded-md">
+                                        @else
+                                            <img src="{{ asset('storage/image/berita2.jpg') }}" alt="{{ $item->judul }}"
+                                                class="object-cover w-full h-[250px] md:h-[150px] rounded-md">
+                                        @endif
+    
+    
+    
+                                        <div class="absolute bottom-4 left-4">
+                                            <p
+                                                class="block px-5 py-1 text-sm text-blue-800 bg-blue-200 rounded-md">Berita</p>
+                                        </div>
                                     </div>
+                                    <p
+                                        class="mt-3 text-lg font-bold text-heading group-hover:text-primary">{{ $item->judul }}</p>
                                 </div>
-                                <a href="/berita/{{ $item->slug }}"
-                                    class="mt-3 text-lg font-bold hover:text-primary text-heading">{{ $item->judul }}</a>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                 @endif
