@@ -58,7 +58,7 @@
 
             </div>
             <!-- More Posts -->
-            <div class="grid grid-cols-12 gap-8 mt-8">
+            <div class="grid grid-cols-12 gap-0 mt-8 lg:gap-8">
                 <!-- card post -->
                 @if ($berita->isEmpty())
                 @else
