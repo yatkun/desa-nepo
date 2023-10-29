@@ -31,7 +31,7 @@
 @endsection
 
 @section('konten')
-    <div class="col-span-12 lg:col-span-9">
+    <div class="col-span-12 lg:col-span-9 border-b-[1px] lg:border-none pb-5 mb-5 lg:mb-0 lg:pb-0">
         <h2 class="mb-8 text-3xl font-bold text-left text-heading">{{ $post->judul }}</h2>
         <div class="flex gap-2 mt-2 mb-5">
             <div class="px-5 py-1 text-sm text-yellow-800 bg-yellow-200 rounded-md md:text-md">Berita</div>
