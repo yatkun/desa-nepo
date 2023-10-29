@@ -1,5 +1,29 @@
 @extends('desa/panel')
 
+@section('css')
+    <style>
+        .editor-container ul {
+            display: block;
+            list-style-type: disc;
+            margin-top: 1em;
+            margin-bottom: 1 em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }
+
+        .editor-container ol {
+            display: block;
+            list-style-type: decimal;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }
+    </style>
+@endsection
+
 @section('hero')
     <div class="container flex flex-col items-center h-40 mx-auto">
 
@@ -7,39 +31,27 @@
 @endsection
 
 @section('konten')
-    <div class="col-span-12 mb-5 lg:mb-0 lg:col-span-9">
-        @if ($layanan->isEmpty())
-            <div class="mb-3 border-b-[1px] bg-slate-100 flex items-center rounded">
-                <p class="p-3 text-lg text-heading ">Layanan Desa Belum Tersedia</p>
+    <div class="col-span-12 lg:col-span-9 border-b-[1px] lg:border-none pb-5 mb-5 lg:mb-0 lg:pb-0">
+        <h2 class="mb-8 text-3xl font-bold text-left text-heading">{{ $post->judul }}</h2>
+        <div class="flex gap-2 mt-2 mb-5">
+            <div class="px-5 py-1 text-sm text-yellow-800 bg-yellow-200 rounded-md md:text-md">Layanan</div>
+            <div class="px-5 py-1 text-sm text-blue-800 bg-blue-200 rounded-md md:text-md">
+                {{ $post->created_at->toDateString() }}
             </div>
+            
+        </div>
+
+        @if ($post->gambar)
+            <img src="{{ asset('storage/' . $post->gambar) }}" alt="{{ $post->judul }}"
+                class="object-cover w-full h-[250px] md:h-[400px] rounded-md mb-5">
         @else
-            <h2 class="mb-8 text-3xl font-bold text-left text-heading">Layanan Desa</h2>
-            <div class="grid grid-cols-12 gap-4">
-                @foreach ($layanan as $item)
-                    <a href="/layanan/{{ $item->slug }}" class="col-span-12 lg:col-span-4 hover:text-primary text-heading">
-                        <div
-                            class="flex flex-col p-4 transition-colors bg-white border border-gray-200 ease-brand duration-250 rounded-xl hover:border-primary hover:shadow">
-                            @if ($item->gambar)
-                                <img src="{{ asset('storage/' . $item->gambar) }}"
-                                    class="object-cover w-full h-32 rounded-lg">
-                            @else
-                                <img src="{{ asset('storage/image/layanan.jpg') }}"
-                                    class="object-cover w-full h-32 rounded-lg">
-                            @endif
-                            
-                            <div class="mt-3 text-lg font-bold text-center ">{{ $item->judul }}</div>
-                        </div>
-                    </a>
-                @endforeach
-
-
-            </div>
+            <img src="{{ asset('storage/image/layanan.jpg') }}" alt="{{ $post->judul }}"
+                class="object-cover w-full h-[250px] md:h-[400px] rounded-md mb-5">
         @endif
+        <div class="editor-container">
+            {!! $post->isi !!}
 
-
-
-
-
+        </div>
 
     </div>
 @endsection

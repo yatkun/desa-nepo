@@ -7,9 +7,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DesaController;
+use App\Http\Controllers\DokumentasiController;
 use App\Http\Controllers\IdentitasController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\VisimisiController;
@@ -44,6 +46,25 @@ Route::get('/layanan/tambah/checkSlug', [LayananController::class, 'checkSlug'])
 Route::get('/layanan/edit/{id}', [LayananController::class, 'edit'])->middleware('auth');
 Route::put('/layanan/update/{id}', [LayananController::class, 'update'])->middleware('auth')->name('layanan.update');
 Route::get('/layanan/hapus/{id}', [LayananController::class, 'destroy'])->middleware('auth')->name('layanan.hapus');
+Route::get('/layanan/{slug}', [LayananController::class, 'show']);
+
+// Dashboard Dokumentasi
+Route::get('/dokumentasi/daftar-dokumentasi', [DokumentasiController::class, 'index'])->name('dokumentasi')->middleware('auth');
+Route::get('/dokumentasi/tambah', [DokumentasiController::class, 'create'])->name('dokumentasi.create')->middleware('auth');
+Route::post('/dokumentasi/store', [DokumentasiController::class, 'store'])->name('dokumentasi.store')->middleware('auth');
+Route::get('/dokumentasi/edit/{id}', [DokumentasiController::class, 'edit'])->middleware('auth');
+Route::put('/dokumentasi/update/{id}', [DokumentasiController::class, 'update'])->middleware('auth')->name('dokumentasi.update');
+Route::get('/dokumentasi/hapus/{id}', [DokumentasiController::class, 'destroy'])->middleware('auth')->name('dokumentasi.hapus');
+
+// Dashboard Penduduk
+Route::get('/penduduk/daftar-penduduk', [PendudukController::class, 'index'])->name('penduduk')->middleware('auth');
+Route::get('/penduduk/tambah', [PendudukController::class, 'create'])->name('penduduk.create')->middleware('auth');
+Route::post('/penduduk/store', [PendudukController::class, 'store'])->name('penduduk.store')->middleware('auth');
+Route::get('/penduduk/edit/{id}', [PendudukController::class, 'edit'])->middleware('auth');
+Route::put('/penduduk/update/{id}', [PendudukController::class, 'update'])->middleware('auth')->name('penduduk.update');
+Route::get('/penduduk/hapus/{id}', [PendudukController::class, 'destroy'])->middleware('auth')->name('penduduk.hapus');
+Route::get('/data-penduduk', [PendudukController::class, 'show'])->name('desa.penduduk');
+
 
 
 // Dashboard Visi Misi

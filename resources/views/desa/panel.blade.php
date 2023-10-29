@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    @yield('js')
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -108,8 +109,8 @@
                                 class="{{ request()->is('layanan*') ? 'bg-indigo-700 text-white' : '' }} block px-4 py-2 text-gray-800 rounded lg:text-white lg:hover:bg-indigo-700 hover:bg-gray-200 md:border-0 ">Layanan</a>
                         </li>
                         <li>
-                            <a href="#"
-                                class="{{ request()->is('data*') ? 'bg-indigo-700 text-white' : '' }} block px-4 py-2 text-gray-800 rounded lg:text-white lg:hover:bg-indigo-700 hover:bg-gray-200 md:border-0 ">Data
+                            <a href="{{ route('desa.penduduk') }}"
+                                class="{{ request()->is('data-penduduk*') ? 'bg-indigo-700 text-white' : '' }} block px-4 py-2 text-gray-800 rounded lg:text-white lg:hover:bg-indigo-700 hover:bg-gray-200 md:border-0 ">Data
                                 Penduduk</a>
                         </li>
     
@@ -169,7 +170,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-
+    @yield('js')
 
 </body>
 

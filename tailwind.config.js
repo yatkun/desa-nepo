@@ -4,6 +4,7 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
+    "./node_modules/tw-elements/dist/js/**/*.js"
   ],
   theme: {
     extend: {
@@ -20,6 +21,7 @@ export default {
   },
   plugins: [
     require('tailwindcss-hero-patterns'),
+    // require("tw-elements/dist/plugin.cjs")
   ],
 }
 

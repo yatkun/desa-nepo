@@ -2,26 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berita;
-use App\Models\Layanan;
-use App\Models\Aparatur;
-use App\Models\Identitas;
-use App\Models\Pengumuman;
+use App\Models\Dokumentasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class LayananController extends Controller
+class DokumentasiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $layanan = Layanan::latest()->get();
+        $dokumentasi = Dokumentasi::latest()->get();
 
-        return view('layanan.index', compact('layanan'), [
-            'title' => 'Daftar Layanan',
+        return view('dokumentasi.index', compact('dokumentasi'), [
+            'title' => 'Daftar Dokumentasi',
         ]);
     }
 
@@ -30,61 +25,40 @@ class LayananController extends Controller
      */
     public function create()
     {
-        return view('layanan.tambah', [
-            'title' => 'Tambah Layanan',
+        return view('dokumentasi.tambah', [
+            'title' => 'Tambah Dokumentasi',
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-
-    public function checkSlug(Request $request)
-    {
-        $slug = SlugService::createSlug(Layanan::class, 'slug', $request->judul);
-
-        return response()->json(['slug' => $slug]);
-    }
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
-            'slug' => 'required|unique:layanans',
-            'isi' => 'required',
             'gambar' => 'image|file|max:3072'
         ], [
             'judul.required' => 'Judul harus diisi !',
             'judul.max' => 'Judul terlalu panjang !',
-            'slug.unique' => 'Slug telah digunakan !',
-            'isi.required' => 'Isi berita harus diisi !',
             'gambar.max' => 'Ukuran gambar maksimal 3mb !'
         ]);
 
         if ($request->file('gambar')) {
-            $validatedData['gambar'] = $request->file('gambar')->store('layanan', 'public');
+            $validatedData['gambar'] = $request->file('gambar')->store('dokumentasi', 'public');
         }
 
-        Layanan::create($validatedData);
+        Dokumentasi::create($validatedData);
 
-        return redirect()->route('layanan')->with('success', 'Layanan berhasil ditambahkan');
+        return redirect()->route('dokumentasi')->with('success', 'Dokumentasi berhasil ditambahkan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show(Dokumentasi $dokumentasi)
     {
-
-        $post = Layanan::where('slug', $slug)->firstOrFail();
-        $identitas = Identitas::latest()->first();
-        $aparatur = Aparatur::all();
-        $pengumuman = Pengumuman::latest()->take(6)->get();
-        // You can pass the $post variable to a view or return it as JSON, depending on your needs.
-        return view('desa.detail_layanan', compact('post', 'pengumuman', 'identitas','aparatur'), [
-
-            'title' => 'Berita',
-        ]);
+        //
     }
 
     /**
@@ -93,11 +67,11 @@ class LayananController extends Controller
     public function edit(string $id)
     {
         //get post by ID
-        $post = Layanan::findOrFail($id);
+        $post = Dokumentasi::findOrFail($id);
 
         //render view with post
-        return view('layanan.edit', compact('post'), [
-            'title' => 'Edit Layanan',
+        return view('dokumentasi.edit', compact('post'), [
+            'title' => 'Edit Dokumentasi',
         ]);
     }
 
@@ -106,35 +80,29 @@ class LayananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //validate form
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
-            'slug' => 'required',
-            'isi' => 'required',
             'gambar' => 'image|file|max:3072'
         ], [
             'judul.required' => 'Judul harus diisi !',
             'judul.max' => 'Judul terlalu panjang !',
-            'slug.required' => 'Slug harus diisi !',
-            'isi.required' => 'Isi berita harus diisi !',
             'gambar.max' => 'Ukuran gambar maksimal 3mb !'
         ]);
 
         //get post by ID
-        $post = Layanan::findOrFail($id);
+        $post = Dokumentasi::findOrFail($id);
 
         if ($request->file('gambar')) {
             if ($post->gambar) {
                 Storage::disk('public')->delete($post->gambar);
                 // Storage::disk('s3')->delete($identitas->logo);
             }
-            $validatedData['gambar'] = $request->file('gambar')->store('layanan', 'public');
+            $validatedData['gambar'] = $request->file('gambar')->store('dokumentasi', 'public');
         }
         $post->update($validatedData);
         //redirect to index
-        return redirect()->route('layanan')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('dokumentasi')->with(['success' => 'Data Berhasil Diubah!']);
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -142,7 +110,7 @@ class LayananController extends Controller
     public function destroy($id)
     {
         //get post by ID
-        $post = Layanan::findOrFail($id);
+        $post = Dokumentasi::findOrFail($id);
 
         //delete image
         // Storage::delete('public/posts/'. $post->image);
@@ -154,6 +122,6 @@ class LayananController extends Controller
         $post->delete();
 
         //redirect to index
-        return redirect()->route('layanan')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('dokumentasi')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

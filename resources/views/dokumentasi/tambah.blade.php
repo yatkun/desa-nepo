@@ -27,32 +27,18 @@
 @endsection
 
 @section('konten')
-    <h3 class="mb-3 font-semibold text-heading">Tambah Berita</h3>
-    <form action="{{ route('berita.store') }}" method="post" enctype="multipart/form-data">
+    <h3 class="mb-3 font-semibold text-heading">Tambah Dokumentasi</h3>
+    <form action="{{ route('dokumentasi.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card" x-data="{ images: [] }">
             <div class="mb-5">
                 <div>
-                    <h4 class="mb-2 text-heading">Judul</h4>
+                    <h4 class="mb-2 text-heading">Deskripsi</h4>
                     <input autofocus class="w-full p-2 mb-4 bg-white border border-gray-300 outline-none title"
-                        spellcheck="false" placeholder="Masukkan judul berita" id="judul" name="judul" type="text">
-                </div>
-                <div>
-                    <h4 class="mb-2 text-heading">Slug</h4>
-                    <input readonly class="w-full p-2 mb-4 bg-gray-100 border border-gray-300 outline-none title"
-                        spellcheck="false" id="slug" name="slug" type="text">
-                </div>
-
-
-
-                <div class="h-auto editor-container">
-                    <h4 class="mb-2 text-heading">Isi</h4>
-                    <textarea name="isi" id="editor">
-                  
-                   </textarea>
+                        spellcheck="false" placeholder="Masukkan deskripsi dokumentasi" id="judul" name="judul" type="text">
                 </div>
                
-                <div class="mt-3 form-group">
+                <div class="form-group">
                     <h4 for="gambar" class="mb-2 text-heading">Gambar</h4>
                     <img src="" class="w-[200px] mb-3 img-preview">
                     <div class="input-group">
@@ -66,33 +52,16 @@
                     </div>
 
                 </div>
-
             </div>
 
             <button type="submit"
-                class="px-3 py-2 mt-3 text-sm text-white rounded bg-primary hover:bg-indigo-800">Simpan</button>
+                class="px-3 py-2 text-sm text-white rounded bg-primary hover:bg-indigo-800">Simpan</button>
         </div>
     </form>
 @endsection
 
 @section('script')
-    <script>
-        const judul = document.querySelector('#judul');
-        const slug = document.querySelector('#slug');
-
-        judul.addEventListener('change', function() {
-            fetch('/berita/tambah/checkSlug?judul=' + judul.value)
-                .then(response => response.json())
-                .then(data => slug.value = data.slug)
-        });
-    </script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+    
     <script>
         function previewImage(){
             const image = document.querySelector('#myInput');

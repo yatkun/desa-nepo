@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aparatur;
 use App\Models\Berita;
+use App\Models\Dokumentasi;
 use App\Models\Identitas;
 use App\Models\Layanan;
 use App\Models\Pengumuman;
@@ -40,12 +41,12 @@ class DesaController extends Controller
 
     public function dokumentasi()
     {
-        
+        $dokumentasi = Dokumentasi::all();
         $aparatur = Aparatur::all();
         $layanan = Layanan::all();
         $identitas = Identitas::latest()->first();
         $pengumuman = Pengumuman::latest()->paginate(6);
-        return view('desa.dokumentasi', compact('pengumuman','identitas','aparatur','layanan'));
+        return view('desa.dokumentasi', compact('pengumuman','identitas','aparatur','layanan','dokumentasi'));
     }
 
     public function sejarah()
