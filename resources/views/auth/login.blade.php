@@ -10,15 +10,15 @@
     <title>Login Page</title>
 </head>
 
-<body class="bg-gray-100">
+<body class="h-screen overflow-hidden bg-gray-100 ">
     {{-- <div class="flex flex-col-reverse items-center justify-center w-full h-screen p-12 bg-blue-300 md:flex-row md:p-0">
         <div class="grid grid-cols-12 bg-green-300">
             <div class="col-span-6 bg-white">as</div>
         <div class="col-span-6 bg-red-100">sa</div>
         </div>
     </div> --}}
-    <div class="flex flex-col items-center justify-center w-full h-screen p-0 md:flex-row md:p-0">
-        <div class="grid items-center w-full grid-cols-1 px-4 md:px-8 md:px-0 md:w-1/2 md:grid-cols-2">
+    <div class="flex flex-col items-center justify-center w-full h-full p-0 md:flex-row md:p-0">
+        <div class="grid items-center w-full grid-cols-1 px-4 md:px-0 md:w-1/2 md:grid-cols-2">
             <div class="order-2 p-4 bg-white shadow-sm md:p-8 md:order-1 rounded-b-md md:rounded-l-md md:rounded-br-none"> <!-- Form login -->
                 <h1 class="text-xl font-semibold">Selamat Datang</h1>
                 <small class="text-gray-400">Halaman Admin Website Desa</small>
