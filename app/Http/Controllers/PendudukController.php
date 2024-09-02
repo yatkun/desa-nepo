@@ -104,17 +104,41 @@ class PendudukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Penduduk $penduduk)
+    public function edit(string $id)
     {
-        //
+        //get post by ID
+        $post = Penduduk::findOrFail($id);
+
+        //render view with post
+        return view('penduduk.edit', compact('post'), [
+            'title' => 'Edit Penduduk',
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Penduduk $penduduk)
+    public function update(Request $request, $id)
     {
-        //
+    
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'nik' => 'required',
+            'nohp' => '',
+            'pekerjaan' => '',
+        ], [
+            'nik.unique' => 'NIK sudah terdaftar pada sistem',
+            'nama.required' => 'Nama wajib diisi',
+            'nohp.required' => 'No.HP wajib diisi',
+            'pekerjaan.required' => 'Pekerjaan wajib diisi',
+            'nik.required' => 'NIK wajib diisi',
+        ]);
+        //get post by ID
+        $post = Penduduk::findOrFail($id);
+
+        $post->update($validatedData);
+        //redirect to index
+        return redirect()->route('penduduk')->with(['success' => 'Penduduk Berhasil Diubah!']);
     }
 
     /**

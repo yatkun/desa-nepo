@@ -7,7 +7,7 @@
     <style>
         .editor-container ul {
             display: block;
-            list-style-type: disc;
+            list-style-type: disc !important;
             margin-top: 1em;
             margin-bottom: 1 em;
             margin-left: 0;
@@ -17,12 +17,15 @@
 
         .editor-container ol {
             display: block;
-            list-style-type: decimal;
+            list-style-type: decimal !important;
             margin-top: 1em;
             margin-bottom: 1em;
             margin-left: 0;
             margin-right: 0;
             padding-left: 40px;
+        }
+        .editor-container li{
+            display: list-item;
         }
     </style>
 @endsection

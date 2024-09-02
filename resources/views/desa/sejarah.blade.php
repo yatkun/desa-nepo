@@ -1,5 +1,30 @@
 @extends('desa/panel')
+@section('css')
+    <style>
+        .editor-container ul {
+            display: block;
+            list-style-type: disc !important;
+            margin-top: 1em;
+            margin-bottom: 1 em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }
 
+        .editor-container ol {
+            display: block;
+            list-style-type: decimal !important;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }
+        .editor-container li{
+            display: list-item;
+        }
+    </style>
+@endsection
 @section('hero')
     <div class="container flex flex-col items-center h-40 mx-auto">
 
@@ -10,7 +35,9 @@
     <div class="col-span-12 lg:col-span-9">
         @if ($sejarah)
             <h2 class="mb-8 text-3xl font-bold text-left text-heading">Sejarah Desa</h2>
-            {!! $sejarah->sejarah !!}
+            <div class="editor-container">
+                {!! $sejarah->sejarah !!}
+            </div>
 
         
         @else

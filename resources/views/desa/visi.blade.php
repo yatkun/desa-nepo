@@ -1,5 +1,31 @@
 @extends('desa/panel')
 
+@section('css')
+    <style>
+        .editor-container ul {
+            display: block;
+            list-style-type: disc !important;
+            margin-top: 1em;
+            margin-bottom: 1 em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }
+
+        .editor-container ol {
+            display: block;
+            list-style-type: decimal !important;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }
+        .editor-container li{
+            display: list-item;
+        }
+    </style>
+@endsection
 @section('hero')
     <div class="container flex flex-col items-center h-40 mx-auto">
 
@@ -9,14 +35,17 @@
 @section('konten')
     <div class="col-span-12 lg:col-span-9">
         @if ($post)
-            <h2 class="mb-8 text-3xl font-bold text-left text-heading">Visi Desa</h2>
+            <h2 class="mb-3 text-3xl font-bold text-left text-heading">Visi Kelurahan</h2>
+            <div class="editor-container">
             {!! $post->visi !!}
-
-            <h2 class="mb-8 text-3xl font-bold text-left text-heading">Misi Desa</h2>
-            {!! $post->misi !!}
+        </div>
+            <h2 class="mt-5 mb-3 text-3xl font-bold text-left text-heading">Misi Kelurahan</h2>
+            <div class="editor-container">
+                {!! $post->misi !!}
+            </div>
         @else
             <div class="mb-3 border-b-[1px] bg-slate-100 flex items-center rounded">
-                <p class="p-3 text-lg text-heading ">Visi Misi Desa Belum Tersedia</p>
+                <p class="p-3 text-lg text-heading ">Visi Misi Kelurahan Belum Tersedia</p>
             </div>
         @endif
     </div>
@@ -26,7 +55,7 @@
     <!-- SidePost -->
     <div class="col-span-12 lg:col-span-3">
         <div class="mb-10">
-            <h2 class="mb-8 text-3xl font-bold text-left text-heading">Aparatur Desa</h2>
+            <h2 class="mb-8 text-3xl font-bold text-left text-heading">Aparatur Kelurahan</h2>
             <div class="swiper mySwiper">
                 <div class=" swiper-wrapper">
                     @if ($aparatur->isEmpty())
