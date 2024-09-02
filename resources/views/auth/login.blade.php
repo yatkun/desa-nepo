@@ -17,9 +17,9 @@
         <div class="col-span-6 bg-red-100">sa</div>
         </div>
     </div> --}}
-    <div class="flex flex-col items-center justify-center w-full h-screen p-4 md:flex-row md:p-0">
-        <div class="grid items-center w-full grid-cols-1 px-8 shadow-sm md:px-0 md:w-1/2 md:grid-cols-2">
-            <div class="order-2 p-8 bg-white md:order-1 rounded-b-md md:rounded-l-md md:rounded-br-none"> <!-- Form login -->
+    <div class="flex flex-col items-center justify-center w-full h-screen p-0 md:flex-row md:p-0">
+        <div class="grid items-center w-full grid-cols-1 px-4 md:px-8 md:px-0 md:w-1/2 md:grid-cols-2">
+            <div class="order-2 p-4 bg-white shadow-sm md:p-8 md:order-1 rounded-b-md md:rounded-l-md md:rounded-br-none"> <!-- Form login -->
                 <h1 class="text-xl font-semibold">Selamat Datang</h1>
                 <small class="text-gray-400">Halaman Admin Website Desa</small>
                 @if (session()->has('loginError'))
@@ -52,7 +52,7 @@
                     </div>
                 </form>
             </div>
-            <div class="order-1 h-full overflow-hidden bg-red-100 md:order-2 rounded-t-md md:rounded-r-md md:rounded-tl-none"> <!-- Gambar -->
+            <div class="order-1 h-full overflow-hidden bg-red-100 shadow-sm md:order-2 rounded-t-md md:rounded-r-md md:rounded-tl-none"> <!-- Gambar -->
                 <img class="object-cover w-full h-full rounded-r-md rounded-t-md md:rounded-r-md md:rounded-tl-none"
                 src="https://cdn.shipsapp.co.id/foto_pelabuhan/cb79a3dd58cc6c9213246cb95e1bb7e5.png">
             </div>
