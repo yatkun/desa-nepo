@@ -146,8 +146,8 @@
         </section>
     </div>
     <footer class="bg-primary">
-        <div class="container flex justify-between px-5 mx-auto md:px-0">
-            <div class="py-5 text-sm text-white ">Tim IT Kelurahan Totoli</div>
+        <div class="container flex px-5 mx-auto md:px-0">
+            <div class="py-5 text-sm text-center text-white md:text-left">Tim IT Kelurahan Lembang</div>
         </div>
     </footer>
 

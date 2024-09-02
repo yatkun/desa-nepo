@@ -9,15 +9,15 @@
     @vite('resources/css/app.css')
     @yield('css')
 
-    <title>{{ $title }} | Desa Nepo</title>
+    <title>{{ $title }} | Kelurahan Lembang</title>
 </head>
 
 <body class="text-gray-800 font-nunito ">
     <!-- start: Sidebar -->
     <div x-data="{ sidebarOpen: window.innerWidth >= 768 }">
         <div
-        x-show="sidebarOpen" :class="{'block': !sidebarOpen}" class="md:block fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform bg-gradient-to-br from-[#5264A1] to-[#374884] sidebar-menu">
-            <a href="#" class="flex justify-center text-xl items-center text-white pb-5 border-b border-b-[#5B6AA1]">
+        x-show="sidebarOpen" :class="{'block': !sidebarOpen}" class="md:block fixed top-0 left-0 z-50 w-64 h-full p-4 transition-transform bg-[#2a3042] sidebar-menu">
+            <a href="#" class="flex justify-center text-xl items-center text-white pb-5 border-b border-b-[#454c5f]">
                 ADMIN PANEL
                 {{-- <img src="https://placehold.co/32x32" alt="" class="object-cover w-8 h-8 rounded">
                 <div class="ml-3 text-lg font-bold text-white">Logo</div> --}}
@@ -25,21 +25,21 @@
             <ul class="mt-4">
                 <li class="mb-1 group {{ request()->is('dashboard*') ? 'active selected' : '' }}">
                     <a href="{{ route('dashboard') }}"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white  group-[.selected]:text-gray-100">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white  group-[.selected]:text-gray-100">
                         <i class="mr-3 text-lg ri-home-2-line"></i>
                         <span class="text-sm">Dashboard</span>
                     </a>
                 </li>
                 <li class="mb-1 group {{ request()->is('identitas*') ? 'active selected' : '' }}">
                     <a href="{{ route('identitas') }}"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white  group-[.selected]:text-gray-100">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white  group-[.selected]:text-gray-100">
                         <i class="mr-3 text-lg ri-ancient-pavilion-line"></i>
                         <span class="text-sm">Identitas Desa</span>
                     </a>
                 </li>
                 <li class="mb-1 group {{ request()->is('aparatur*') ? 'active selected' : '' }}">
                     <a href="{{ route('aparatur') }}"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white  group-[.selected]:text-gray-100">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white  group-[.selected]:text-gray-100">
                         <i class="mr-3 text-lg ri-account-box-line"></i>
                         <span class="text-sm">Aparatur Desa</span>
                     </a>
@@ -47,7 +47,7 @@
                 
                 <li class="mb-1 group {{ request()->is('profil*') ? 'active selected' : '' }}">
                     <a href="#"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                         <i class="mr-3 text-lg ri-profile-line"></i>
                         <span class="text-sm">Profil Desa</span>
                         <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
@@ -55,18 +55,18 @@
                     <ul class="mt-1 hidden group-[.selected]:block">
                         <li class="mb-1">
                             <a href="{{ route('visimisi') }}"
-                                class="pl-12 {{ request()->is('profil/visi-misi*') ? 'active text-white group-[.selected]:bg-[#5B6AA1]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Visi
+                                class="pl-12 {{ request()->is('profil/visi-misi*') ? 'active text-white group-[.selected]:bg-[#454c5f]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Visi
                                 Misi</a>
                         </li>
                         <li class="mb-1">
                             <a href="{{ route('sejarah') }}"
-                                class="pl-12 {{ request()->is('profil/sejarah*') ? 'active text-white group-[.selected]:bg-[#5B6AA1]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Sejarah</a>
+                                class="pl-12 {{ request()->is('profil/sejarah*') ? 'active text-white group-[.selected]:bg-[#454c5f]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Sejarah</a>
                         </li>
                     </ul>
                 </li>
                 <li class="mb-1 group {{ request()->is('berita*') ? 'active selected' : '' }}">
                     <a href="#"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                         <i class="mr-3 text-lg ri-newspaper-line"></i>
                         <span class="text-sm">Berita Desa</span>
                         <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
@@ -74,7 +74,7 @@
                     <ul class="mt-1 hidden group-[.selected]:block">
                         <li class="mb-1">
                             <a href="{{ route('berita') }}"
-                                class="pl-12 {{ request()->is('berita*') ? 'active text-white group-[.selected]:bg-[#5B6AA1]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
+                                class="pl-12 {{ request()->is('berita*') ? 'active text-white group-[.selected]:bg-[#454c5f]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
                                 Berita</a>
                         </li>
 
@@ -82,7 +82,7 @@
                 </li>
                 <li class="mb-1 group {{ request()->is('layanan*') ? 'active selected' : '' }}">
                     <a href="#"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                         <i class="mr-3 text-lg ri-briefcase-line"></i>
                         <span class="text-sm">Layanan</span>
                         <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
@@ -90,7 +90,7 @@
                     <ul class="mt-1 hidden group-[.selected]:block">
                         <li class="mb-1">
                             <a href="{{ route('layanan') }}"
-                                class="pl-12 {{ request()->is('layanan*') ? 'active text-white group-[.selected]:bg-[#5B6AA1]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
+                                class="pl-12 {{ request()->is('layanan*') ? 'active text-white group-[.selected]:bg-[#454c5f]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
                                 Layanan</a>
                         </li>
 
@@ -98,7 +98,7 @@
                 </li>
                 <li class="mb-1 group {{ request()->is('pengumuman*') ? 'active selected' : '' }}">
                     <a href="#"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                         <i class="mr-3 text-lg ri-megaphone-line"></i>
                         <span class="text-sm">Pengumuman</span>
                         <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
@@ -106,7 +106,7 @@
                     <ul class="mt-1 hidden group-[.selected]:block">
                         <li class="mb-1">
                             <a href="{{ route('pengumuman') }}"
-                                class="pl-12 {{ request()->is('pengumuman*') ? 'active text-white group-[.selected]:bg-[#5B6AA1]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
+                                class="pl-12 {{ request()->is('pengumuman*') ? 'active text-white group-[.selected]:bg-[#454c5f]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
                                 Pengumuman</a>
                         </li>
 
@@ -115,7 +115,7 @@
 
                 <li class="mb-1 group {{ request()->is('dokumentasi*') ? 'active selected' : '' }}">
                     <a href="#"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                         <i class="mr-3 text-lg ri-image-2-line"></i>
                         <span class="text-sm">Dokumentasi</span>
                         <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
@@ -123,7 +123,7 @@
                     <ul class="mt-1 hidden group-[.selected]:block">
                         <li class="mb-1">
                             <a href="{{ route('dokumentasi') }}"
-                                class="pl-12 {{ request()->is('dokumentasi*') ? 'active text-white group-[.selected]:bg-[#5B6AA1]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
+                                class="pl-12 {{ request()->is('dokumentasi*') ? 'active text-white group-[.selected]:bg-[#454c5f]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
                                 Dokumentasi</a>
                         </li>
 
@@ -132,7 +132,7 @@
 
                 <li class="mb-1 group {{ request()->is('penduduk*') ? 'active selected' : '' }}">
                     <a href="#"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                         <i class="mr-3 text-lg ri-image-2-line"></i>
                         <span class="text-sm">Penduduk</span>
                         <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
@@ -140,7 +140,7 @@
                     <ul class="mt-1 hidden group-[.selected]:block">
                         <li class="mb-1">
                             <a href="{{ route('penduduk') }}"
-                                class="pl-12 {{ request()->is('penduduk*') ? 'active text-white group-[.selected]:bg-[#5B6AA1]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
+                                class="pl-12 {{ request()->is('penduduk*') ? 'active text-white group-[.selected]:bg-[#454c5f]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
                                 Penduduk</a>
                         </li>
 
@@ -151,7 +151,7 @@
                 
                 <li class="mb-1 group {{ request()->is('admin*') ? 'active selected' : '' }}">
                     <a href="#"
-                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#5B6AA1] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                        class="flex items-center py-2 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md group-[.active]:bg-[#454c5f] group-[.active]:text-white  group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                         <i class="mr-3 text-lg ri-admin-line"></i>
                         <span class="text-sm">Admin</span>
                         <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
@@ -159,7 +159,7 @@
                     <ul class="mt-1 hidden group-[.selected]:block">
                         <li class="mb-1">
                             <a href="{{ route('user') }}"
-                                class="pl-12 {{ request()->is('admin*') ? 'active text-white group-[.selected]:bg-[#5B6AA1]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
+                                class="pl-12 {{ request()->is('admin*') ? 'active text-white group-[.selected]:bg-[#454c5f]' : '' }} text-sm flex items-center py-3 px-4 text-gray-300 hover:bg-[#5B6AA1] hover:text-gray-100 rounded-md  group-[.active]:text-white  group-[.selected]:text-gray-100">Daftar
                                 Admin</a>
                         </li>
 
