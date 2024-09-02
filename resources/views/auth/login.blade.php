@@ -60,8 +60,8 @@
 
             <!-- Login banner -->
             <div class="flex flex-wrap content-center justify-center rounded-r-md" style="width: 24rem; height: 32rem;">
-                <img class="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md"
-                    src="https://i.imgur.com/9l1A4OS.jpeg">
+                <img class="object-cover w-auto h-full bg-cover rounded-r-md"
+                    src="https://cdn.shipsapp.co.id/foto_pelabuhan/cb79a3dd58cc6c9213246cb95e1bb7e5.png">
             </div>
 
         </div>
