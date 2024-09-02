@@ -59,7 +59,7 @@
             </div>
 
             <!-- Login banner -->
-            <div class="flex flex-wrap content-center justify-center rounded-r-md" style="width: 24rem; height: 32rem;">
+            <div class="flex-wrap content-center justify-center hidden md:flex rounded-r-md" style="width: 24rem; height: 32rem;">
                 <img class="object-cover w-auto h-full bg-cover rounded-r-md"
                     src="https://cdn.shipsapp.co.id/foto_pelabuhan/cb79a3dd58cc6c9213246cb95e1bb7e5.png">
             </div>
