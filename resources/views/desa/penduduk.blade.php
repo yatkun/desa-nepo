@@ -10,7 +10,7 @@
     <div class="col-span-12 mb-5 lg:mb-0 lg:col-span-9">
         @if ($penduduk->isEmpty())
             <div class="mb-3 border-b-[1px] bg-slate-100 flex items-center rounded">
-                <p class="p-3 text-lg text-heading ">Layanan Desa Belum Tersedia</p>
+                <p class="p-3 text-lg text-heading ">Data Penduduk Belum Tersedia</p>
             </div>
         @else
             <h2 class="mb-8 text-3xl font-bold text-left text-heading">Data Penduduk</h2>
