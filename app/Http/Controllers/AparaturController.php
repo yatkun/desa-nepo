@@ -86,7 +86,7 @@ class AparaturController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required',
             'jabatan' => 'required',
-            'foto' => 'image|file|max:2048'
+            'foto' => 'image|file|max:7048'
         ]);
 
         //get post by ID
