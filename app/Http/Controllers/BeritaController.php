@@ -44,7 +44,7 @@ class BeritaController extends Controller
             'judul' => 'required|max:255',
             'slug' => 'required|unique:beritas',
             'isi' => 'required',
-            'gambar' => 'image|file|max:3072'
+            'gambar' => 'image|file|max:7072'
         ], [
             'judul.required' => 'Judul harus diisi !',
             'judul.max' => 'Judul terlalu panjang !',
