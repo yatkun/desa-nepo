@@ -38,7 +38,7 @@ class AparaturController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required',
             'jabatan' => 'required',
-            'foto' => 'required|image|file|max:2048'
+            'foto' => 'required|image|file|max:7048'
         ],[
             'nama.required' => 'Nama harus diisi !',
             'jabatan.required' => 'Jabatan harus diisi !',
